@@ -20,6 +20,41 @@ public class Libretto {
 		this.voti.add(v);
 	}
 	
+	
+	public List<Voto> listaVotiUguali(int punteggio){
+		// restituisce lista solo i voti uguali al criterio
+		List<Voto> risultato = new ArrayList<>();
+		for( Voto v: this.voti) {
+			if(v.getVoto()==punteggio) {
+				risultato.add(v);
+			}
+		}
+		return risultato;
+	}
+	
+	public Libretto votiUguali(int punteggio) {
+		Libretto risultato = new Libretto();
+		for (Voto v: this.voti){
+			if(v.getVoto()==punteggio) {
+				risultato.add(v);
+			}
+		}
+		return risultato;		
+	}
+	
+	//Ricerca un voto del corso di cui è specificato il nome,
+	//se il corso non esiste, restituisce null.
+	public Voto ricercaCorso(String nomeCorso) {
+		Voto risultato = null;
+		for(Voto v: this.voti) {
+			if(v.getNome().equals(risultato)) {
+				risultato = v;
+				break;
+			}
+		}
+		return risultato;
+	}
+	
 	//usiamo un metodo per stampare la lista 
 	public String toString() {
 		String s = "";
